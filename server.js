@@ -24,13 +24,13 @@ server.on('request', (req, res) => {
     });
 });
 
-// REQUEST: PUBLIC FOLDER >> STYLES, IMAGES
+// REQUEST: PUBLIC FOLDER >> STYLES, IMAGES, SCRIPTS
 server.on('request', (req, res) => {
     const url = req.url;
     const pathType = getPathType(url);
     if (!pathType || pathType === 'HOME') return
 
-    const resource = url.substring(1, url.indexOf('.')).toUpperCase();
+    const resource = url.substring(1, url.indexOf('.')).toUpperCase().replace('-', '_');
     fs.readFile(RESOURCES.PUBLIC[pathType][resource], (err, data) => {
         if (err) throw err;
 

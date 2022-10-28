@@ -10,7 +10,8 @@ const RESOURCES = {
             STYLES: './public/styles/styles.css',
         },
         IMAGES: {
-            SMOOTHIE: './public/images/smoothie.jpg'
+            SMOOTHIE: './public/images/smoothie.jpg',
+            LIBRARY: './public/images/library.jpeg',
         }
     }
 };
@@ -18,7 +19,7 @@ const RESOURCES = {
 const PATHS = {
     HOME: ['', '/', '/home'],
     STYLES: ['/reset.css', '/styles.css'],
-    IMAGES: ['/smoothie.jpg'],
+    IMAGES: ['/smoothie.jpg', '/library.jpeg'],
 };
 
 module.exports = { RESOURCES, PATHS };

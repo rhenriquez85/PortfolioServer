@@ -11,7 +11,7 @@ const listener = (req, res) => {
 
 const server = http.createServer(listener);
 
-// REQUEST: PUBLIC FOLDER
+// REQUEST: PUBLIC FOLDER >> HOME
 server.on('request', (req, res) => {
     const url = req.url;
     if (!PATHS.HOME.includes(url)) return;
@@ -24,6 +24,7 @@ server.on('request', (req, res) => {
     });
 });
 
+// REQUEST: PUBLIC FOLDER >> STYLES, IMAGES
 server.on('request', (req, res) => {
     const url = req.url;
     const pathType = getPathType(url);

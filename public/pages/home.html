@@ -3,15 +3,24 @@
     <head>
         <title>r3seprojects</title>
         <meta name="author"  content="Rene Henriquez">
+        <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <header>
-            <p>Welcome to r3seprojects! This is the portfolio site for Rene Henriquez, a full-stack engineer based in Miami, FL.</p>
+            <p class="header-intro">Welcome to <a>r3seprojects!</a></p>
+            <p>This is the portfolio site for Rene Henriquez, a full-stack engineer based in Miami, FL.</p>
         </header>
         <main>
-            <div class="portfolio-card">ReactSmoothieApp</div>
-            <div class="portfolio-card">NodeLibraryApp</div>
+            <div class="portfolio-container">
+                <div class="portfolio-card">
+                    <img src="smoothie.jpg" alt="smoothie" />
+                    <p>ReactSmoothieApp</p>
+                </div>
+                <div class="portfolio-card">
+                    <p>NodeLibraryApp</p>
+                </div>
+            </div>
         </main>
     </body>
 </html>

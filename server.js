@@ -3,6 +3,7 @@
 const http = require('http');
 const fs = require('fs');
 const { RESOURCES, PATHS } = require('./util/constants.js');
+const { getPathType } = require('./util/helpers.js');
 
 const listener = (req, res) => {
     console.log('listener');
@@ -25,12 +26,15 @@ server.on('request', (req, res) => {
 
 server.on('request', (req, res) => {
     const url = req.url;
-    if (PATHS.STYLES !== url) return;
+    const pathType = getPathType(url);
+    if (!pathType || pathType === 'HOME') return
 
-    fs.readFile(RESOURCES.PUBLIC.STYLES.STYLES, (err, data) => {
+    const resource = url.substring(1, url.indexOf('.')).toUpperCase();
+    fs.readFile(RESOURCES.PUBLIC[pathType][resource], (err, data) => {
         if (err) throw err;
 
-        res.write(data.toString());
+        const resData = pathType === 'IMAGES' ? data : data.toString();
+        res.write(resData);
         res.end();
     });
 });

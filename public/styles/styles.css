@@ -1,5 +1,65 @@
+body {
+    padding: 10px 0;
+    margin: auto;
+    width: 800px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+}
+
+header {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.header-intro a {
+        background: linear-gradient(to right, #f5ce62, #e43603, #fa7199, darkred);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+}
+
+.portfolio-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 .portfolio-card {
-    max-width: 200px;
-    max-height: 200px;
-    background-color: yellow;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 250px;
+    height: 250px;
+    background-color: beige;
+    margin: auto;
+}
+
+.portfolio-card img {
+    width: 100%;
+    height: 100%;
+    /* object-fit:  fill; */
+}
+
+@media (pointer:coarse), (pointer:none), (max-width:800px) {
+    body {
+        padding: 2vh 0;
+        width: 90%;
+        font-size: 6vw;
+    }
+
+    header {
+        padding-bottom: 2vh;
+    }
+
+    .header-intro {
+        margin-bottom: 2vh;
+    }
+
+    .portfolio-container {
+        margin: auto;
+        width: 90vw;
+        font-size: 4vw;
+    }
+
+    .portfolio-card {
+        width: 40vw;
+        height: 40vw;
+    }
 }

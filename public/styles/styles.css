@@ -1,6 +1,10 @@
 :root {
     --portfolio-card-dim: 300px;
     --portfolio-card-padding: 20px;
+
+    --portfolio-card-opacity: 0.85;
+    --portfolio-card-transition-duration: .7s;
+    --portfolio-card-transition-delay: .025s;
 }
 
 body {
@@ -44,7 +48,14 @@ header {
     height: 90%;
 }
 
-.portfolio-card p {
+.portfolio-card img:hover {
+    opacity: var(--portfolio-card-opacity);
+    transition-property: opacity;
+    transition-duration: var(--portfolio-card-transition-duration);
+    transition-delay: var(--portfolio-card-transition-delay);
+}
+
+.card-title {
     margin: 5% 0;
 }
 
@@ -54,16 +65,6 @@ header {
     top: 0px;
     left: 0px;
     opacity: 0;
-    /* transition-property: opacity;
-    transition-duration:  2s;
-    transition-delay: 1s; */
-}
-
-.card-modal:hover {
-    opacity: 0.85;
-    transition-property: opacity;
-    transition-duration:  1s;
-    transition-delay: .05s;
 }
 
 /* */
@@ -98,7 +99,7 @@ header {
         padding: 25px;
     }
 
-    .portfolio-card p {
+    .card-title {
         margin: 2.5% 0;
     }
 }

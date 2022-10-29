@@ -35,6 +35,8 @@ server.on('request', (req, res) => {
         if (err) throw err;
 
         const resData = pathType === 'IMAGES' ? data : data.toString();
+        if (pathType === 'SCRIPTS')
+            res.writeHead(200, { "Content-Type": "text/javascript" });
         res.write(resData);
         res.end();
     });

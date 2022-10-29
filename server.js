@@ -2,11 +2,12 @@
 
 const http = require('http');
 const fs = require('fs');
+const firebase = require('./storage/firebase.js');
 const { RESOURCES, PATHS } = require('./util/constants.js');
 const { getPathType } = require('./util/helpers.js');
 
 const listener = (req, res) => {
-    console.log('listener');
+    console.log('listener', req.url);
 };
 
 const server = http.createServer(listener);
@@ -24,11 +25,11 @@ server.on('request', (req, res) => {
     });
 });
 
-// REQUEST: PUBLIC FOLDER >> STYLES, IMAGES, SCRIPTS
+// REQUEST: PUBLIC FOLDER >> IMAGES, SCRIPTS, STYLES
 server.on('request', (req, res) => {
     const url = req.url;
     const pathType = getPathType(url);
-    if (!pathType || pathType === 'HOME') return
+    if (!(pathType === 'IMAGES' || pathType === 'SCRIPTS' || pathType === 'STYLES')) return;
 
     const resource = url.substring(1, url.indexOf('.')).toUpperCase().replace('-', '_');
     fs.readFile(RESOURCES.PUBLIC[pathType][resource], (err, data) => {
@@ -38,6 +39,19 @@ server.on('request', (req, res) => {
         if (pathType === 'SCRIPTS')
             res.writeHead(200, { "Content-Type": "text/javascript" });
         res.write(resData);
+        res.end();
+    });
+});
+
+// REQUEST: STORAGE
+server.on('request', (req, res) => {
+    const url = req.url;
+    const pathType = getPathType(url);
+    if(pathType !== 'STORAGE') return;
+
+    firebase.getData((data) => {
+        res.writeHead(200, { "Content-Type": "text/plain" });
+        res.write(JSON.stringify(data));
         res.end();
     });
 });

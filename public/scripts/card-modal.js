@@ -1,3 +1,5 @@
+'use strict';
+
 (() => {
     const xhr = new XMLHttpRequest();
     xhr.addEventListener('load', () => {
@@ -20,6 +22,13 @@
             title.innerHTML = card.title;
     
             portfolioContainer.prepend(newNode);
+
+            modal.addEventListener('mouseenter', () => {
+                image.classList.add('card-blur');
+            });
+            modal.addEventListener('mouseleave', () => {
+                image.classList.remove('card-blur');
+            });
         });
     });
     xhr.open('GET', '/firebase/projects');

@@ -1,10 +1,14 @@
 :root {
     --portfolio-card-dim: 300px;
     --portfolio-card-padding: 20px;
+    --portfolio-card-perc-height: 90%;
 
     --portfolio-card-opacity: 0.75;
     --portfolio-card-transition-duration: .7s;
     --portfolio-card-transition-delay: .025s;
+
+    --portfolio-card-info-overlay-padding: 15px;
+    --portfolio-card-info-overlay-margin: 20px;
 }
 
 body {
@@ -28,6 +32,7 @@ header {
 
 /* PORTFOLIO CONTAINER, PORTFOLIO CARD */
 .portfolio-container {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -42,10 +47,11 @@ header {
     margin: 0 auto 25px;
 }
 
+/* PORTFOLIO CARD IMAGE */
 .portfolio-card img {
     display: block;
     width: 100%;
-    height: 90%;
+    height: var(--portfolio-card-perc-height);
 }
 
 .portfolio-card img:hover {
@@ -62,10 +68,6 @@ header {
     transition-delay: var(--portfolio-card-transition-delay);
 }
 
-.card-title {
-    margin: 5% 0;
-}
-
 .card-modal {
     position: absolute;
     object-fit: contain;
@@ -79,9 +81,64 @@ header {
     z-index: -1;
 }
 
-/* */
-/* */
-/* */
+/* CARD TITLE */
+.card-title {
+    margin: 5% 0;
+}
+
+.card-title:hover {
+    cursor: pointer;
+}
+
+/* CARD INFO */
+.card-info {
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: calc(-1 * var(--portfolio-card-padding)) auto 0;
+    background-color: darkblue;
+    border: black solid 1px;
+    width: 70%;
+    height: calc(.9 * (var(--portfolio-card-dim) - 1 * var(--portfolio-card-padding)));
+    border-radius: 8px;
+    font-weight: 300;
+}
+
+.card-info-overlay {
+    display: grid;
+    width: calc(100% - var(--portfolio-card-info-overlay-padding));
+    height: calc(100% - var(--portfolio-card-info-overlay-padding));
+    border-radius: 8px;
+    background-color: whitesmoke;
+    margin: var(--portfolio-card-info-overlay-margin) 0;
+}
+
+.card-info-overlay p {
+    margin-left: var(--portfolio-card-info-overlay-margin);
+    margin-right: var(--portfolio-card-info-overlay-margin);
+    height: 100%;
+    height: 50%;
+    height: 40px;
+}
+
+.card-info-overlay p:first-child {
+    margin-top: var(--portfolio-card-info-overlay-margin);
+}
+
+.card-info-title {
+    font-weight:400;
+    color:red;
+}
+
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
 /* MEDIA */
 @media (pointer:coarse), (pointer:none), (max-width:800px) {
     body {

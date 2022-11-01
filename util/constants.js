@@ -11,6 +11,7 @@ const RESOURCES = {
             HOME: './public/pages/home.html',
         },
         SCRIPTS: {
+            HELPERS: './public/scripts/helpers.js',
             CARD_MODAL: './public/scripts/card-modal.js',
         },
         STYLES: {
@@ -23,7 +24,7 @@ const RESOURCES = {
 const PATHS = {
     HOME: ['', '/', '/home'],
     IMAGES: ['/smoothie.jpg', '/library.jpeg', '/go.png'],
-    SCRIPTS: ['/card-modal.js'],
+    SCRIPTS: ['/helpers.js', '/card-modal.js'],
     STYLES: ['/reset.css', '/styles.css'],
     STORAGE: ['/firebase/projects'],
 };

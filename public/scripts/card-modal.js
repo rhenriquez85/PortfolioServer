@@ -27,7 +27,7 @@
 
 	        const cardDesc = card.description;
 	        const cardDetails = card.details;
-	        const regEx = /^[^,.;-]*:\s/;
+	        const regEx = /^[^,.;]*:\s/;
 	        const titleDesc = cardDesc.match(regEx);
 	        const titleDetails = cardDetails.match(regEx);
 	        const titleHtml = '<strong class="card-info-title">@replace@</strong>';
@@ -57,6 +57,19 @@
                 info.style.transitionDuration = '0s';
                 info.style.zIndex = -1;
             });
+
+		    // const mediaQueries = getMediaQueries('styles.css');		
+    		const mediaQueries = ['(pointer: coarse)', '(pointer: none)', '(max-width: 800px)'];		
+			mediaQueries.forEach((query) => {
+				if (!window.matchMedia(query).matches) return;
+				console.log(window.matchMedia(query));
+				title.addEventListener('click', () => {
+					const event = new Event('mouseenter');
+					title.dispatchEvent(event);
+				})
+			});
+
+
         });
     });
     xhr.open('GET', '/firebase/projects');

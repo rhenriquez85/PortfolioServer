@@ -7,7 +7,7 @@ const { RESOURCES, PATHS } = require('./util/constants.js');
 const { getPathType } = require('./util/helpers.js');
 
 const listener = (req, res) => {
-    console.log('listener', req.url);
+    console.log('listener', req.method, req.url);
 };
 
 const server = http.createServer(listener);

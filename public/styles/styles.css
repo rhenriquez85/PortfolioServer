@@ -11,6 +11,7 @@
     --portfolio-card-info-overlay-margin: 20px;
 
     --portfolio-card-dim-media: 42.5vw;
+    --portfolio-card-perc-height-media: 85%;
 }
 
 body {
@@ -108,6 +109,8 @@ header {
     height: calc(.9 * (var(--portfolio-card-dim) - 1 * var(--portfolio-card-padding)));
     border-radius: 8px;
     font-weight: 300;
+	
+    z-index: -1;
 }
 
 .card-info-overlay {
@@ -136,6 +139,23 @@ header {
 .card-info-title {
     font-weight:400;
     color:red;
+}
+
+/* HELPERS */
+
+.disabled-anchor {
+    pointer-events: none;
+    cursor: default;
+}
+
+.screen-modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-active {
+    z-index: 2;
 }
 
 /*  */
@@ -172,8 +192,12 @@ header {
         padding: 25px;
     }
 
+    .portfolio-card img {
+        height: var(--portfolio-card-perc-height-media);
+    }
+
     .card-title {
-        margin: 2.5% 0;
+        margin: 5% 0;
     }
 
     .card-modal {
@@ -185,10 +209,11 @@ header {
         display: block;
         overflow: auto;
         height: auto;
+        
     }
 
     .card-info-overlay {
-        width: calc(100% - 2 * var(--portfolio-card-info-overlay-margin));
+        /* width: calc(100% - 2 * var(--portfolio-card-info-overlay-margin)); */
         margin-left: auto;
         margin-right: auto;
         /* border: darkblue solid 20px; */

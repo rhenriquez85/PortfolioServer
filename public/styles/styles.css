@@ -142,12 +142,6 @@ header {
 }
 
 /* HELPERS */
-
-.disabled-anchor {
-    pointer-events: none;
-    cursor: default;
-}
-
 .screen-modal {
     position: absolute;
     width: 100%;

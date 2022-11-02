@@ -3,7 +3,6 @@
 
     --page-background-color: whitesmoke ;
 
-    /* --page-container-addl-margin: 10px; */
     --page-container-addl-margin: 5px;
 
     --portfolio-container-margin: 140px;
@@ -12,9 +11,8 @@
     --portfolio-card-padding: 20px;
     --portfolio-card-margin: 25px;
     --portfolio-card-perc-height: 90%;
-    /* --portfolio-card-border: lightgray solid 1px; */
-    --portfolio-card-border: lightgray solid 3px;
-    --portfolio-card-border-inner-width: 1px;
+    --portfolio-card-border: gray solid 3px;
+    --portfolio-card-border-inner: lightgray solid 2px;
 
     --portfolio-card-opacity: 0.75;
     --portfolio-card-transition-duration: .7s;
@@ -25,13 +23,13 @@
 
     --portfolio-card-dim-media: 42.5vw;
     --portfolio-card-perc-height-media: 85%;
+
+    --portfolio-card-border-inner-media: gray solid 1px;
 }
 
 body {
     padding: 15px 0;
     margin: auto;
-    /* width: 800px;
-    width: 1000px; */
     width: var(--body-width);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
@@ -47,28 +45,14 @@ main {
 }
 
 .page-container {
-    /* background-color: var(--page-background-color) */
-    /* background-image: linear-gradient(var(--page-background-color), var(--page-background-color), var(--page-background-color), transparent); */
-    /* background-image: linear-gradient(to bottom, white, white, rgb(237, 246, 255), rgb(218, 234, 250)); */
     border-radius: 10px;
     background-image: url('/back-art-2.jpg');
     background-size: cover;
     padding-top: calc(var(--portfolio-card-margin) + var(--page-container-addl-margin));
     padding-bottom: calc(var(--page-container-addl-margin) + 5px);
-    /* padding-top: var(--page-container-margin-top-bottom); */
-
-    /* border: rgba(0, 0, 0, 0.855); */ 
-    /* border-bottom-color: transparent; */
-    /* border-color: rgba(0, 0, 0, 0.855); */
-    /* border-color: transparent; */
-    /* border-image: linear-gradient(rgba(0, 0, 0, 0.855), rgba(0, 0, 0, 0.5 ), rgba(0, 0, 0, 0.1 )) 1;  */
-    /* border-image: linear-gradient(to bottom, transparent, transparent); */
-    /* border-color: black; */
-    /* border-color: transparent; */
     border-color: rgba(0, 0, 0, 0.855);
     border-style: solid; 
     border-width: 15px;
-    /* border-bottom-color: transparent; */
 }
 
 .header-intro a {
@@ -91,13 +75,7 @@ main {
     width: var(--portfolio-card-dim);
     height: var(--portfolio-card-dim);
     background-color: beige;
-    
-    /* margin: 0 auto 25px;
-    margin: 25px auto; */
     margin: var(--portfolio-card-margin) auto;
-    /* margin-right: 110px; */
-    
-    /* border: lightgray solid 1px; */
     border: var(--portfolio-card-border);
     border-radius: 5px;
 }
@@ -115,9 +93,6 @@ main {
     display: block;
     width: 100%;
     height: var(--portfolio-card-perc-height);
-
-    /* border: lightgray solid 1px; */
-    /* border: var(--portfolio-card-border); */
 }
 
 .portfolio-card img:hover {
@@ -144,9 +119,7 @@ main {
 }
 
 .card-image {
-    /* border: var(--portfolio-card-border); */
-    border: var(--portfolio-card-border);
-    border-width: var(--portfolio-card-border-inner-width);
+    border: var(--portfolio-card-border-inner);
     z-index: -1;
 }
 
@@ -171,7 +144,6 @@ main {
     margin: calc(-1 * var(--portfolio-card-padding)) auto 0;
     background-color: darkblue;
     border: black solid 1px;
-    /* width: 70%; */
     width: 60%;
     height: calc(.9 * (var(--portfolio-card-dim) - 1 * var(--portfolio-card-padding)));
     border-radius: 8px;
@@ -185,7 +157,6 @@ main {
     height: calc(100% - var(--portfolio-card-info-overlay-padding));
     border-radius: 8px;
     background-color: whitesmoke;
-
     background-image: url('/back-art-3.jpg');
     background-size: cover;
 }
@@ -229,19 +200,13 @@ main {
 /* MEDIA */
 @media (pointer:coarse), (pointer:none), (max-width:800px) {
     body {
-        /* padding: 2vh 0; */
-        /* padding: 8vh 0; */
         padding: 6vh 0;
         width: 98vw;
-        /* width: 98vw; */
         font-size: 6vw;
-        /* margin-left: 4vw; */
     }
 
     header {
         padding-bottom: 2vh;
-
-
     }
 
     .header-intro {
@@ -250,7 +215,6 @@ main {
 
     .page-container {
         padding-top: 3.5vh;
-
         background-image: url('/back-art-2-mobile.jpg');
     }
 
@@ -275,12 +239,10 @@ main {
 
     .portfolio-container > div:nth-child(odd) .portfolio-card {
         margin-left: auto;
-        /* margin-left: 0; */
     }
     
     .portfolio-container > div:nth-child(even) .portfolio-card {
         margin-right: auto;
-        /* margin-right: 0; */
     }
 
     .card-title {
@@ -289,6 +251,10 @@ main {
 
     .card-modal {
         visibility: hidden;
+    }
+
+    .card-image {
+        border: var(--portfolio-card-border-inner-media);
     }
 
     /* CARD INFO */
@@ -300,11 +266,8 @@ main {
     }
 
     .card-info-overlay {
-        /* width: calc(100% - 2 * var(--portfolio-card-info-overlay-margin)); */
-        margin-left: auto;
-        margin-right: auto;
-        /* border: darkblue solid 20px; */
-        /* border: darkblue solid 15px; */
+        margin: 8px;
+        background-image: url('/back-art-3-mobile.jpg');
     }
 
     .card-info-overlay p {

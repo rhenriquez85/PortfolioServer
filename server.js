@@ -31,7 +31,7 @@ server.on('request', (req, res) => {
     const pathType = getPathType(url);
     if (!(pathType === 'IMAGES' || pathType === 'SCRIPTS' || pathType === 'STYLES')) return;
 
-    const resource = url.substring(1, url.indexOf('.')).toUpperCase().replace('-', '_');
+    const resource = url.substring(1, url.indexOf('.')).toUpperCase().replace(/-/g, '_');
     fs.readFile(RESOURCES.PUBLIC[pathType][resource], (err, data) => {
         if (err) throw err;
 

@@ -6,6 +6,9 @@ const RESOURCES = {
             SMOOTHIE: './public/images/smoothie.jpg',
             LIBRARY: './public/images/library.jpeg',
             GO: './public/images/go.png',
+		    BACK_ART: './public/images/back-art.jpg',
+            BACK_ART_2: './public/images/back-art-2.jpg',
+            BACK_ART_3: './public/images/back-art-3.jpg',
         },
         PAGES: {
             HOME: './public/pages/home.html',
@@ -23,7 +26,7 @@ const RESOURCES = {
 
 const PATHS = {
     HOME: ['', '/', '/home'],
-    IMAGES: ['/smoothie.jpg', '/library.jpeg', '/go.png'],
+    IMAGES: ['/smoothie.jpg', '/library.jpeg', '/go.png', '/back-art.jpg', '/back-art-2.jpg', '/back-art-3.jpg'],
     SCRIPTS: ['/helpers.js', '/card-modal.js'],
     STYLES: ['/reset.css', '/styles.css'],
     STORAGE: ['/firebase/projects'],

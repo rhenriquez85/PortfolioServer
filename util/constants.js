@@ -11,6 +11,7 @@ const RESOURCES = {
             BACK_ART_2_MOBILE: './public/images/back-art-2-mobile.jpg',
             BACK_ART_3: './public/images/back-art-3.jpg',
             BACK_ART_3_MOBILE: './public/images/back-art-3-mobile.jpg',
+            STUDIO: './public/images/studio.jpg',
         },
         PAGES: {
             HOME: './public/pages/home.html',
@@ -28,7 +29,7 @@ const RESOURCES = {
 
 const PATHS = {
     HOME: ['', '/', '/home'],
-    IMAGES: ['/smoothie.jpg', '/library.jpeg', '/go.png', '/back-art.jpg', '/back-art-2.jpg', '/back-art-2-mobile.jpg', '/back-art-3.jpg', '/back-art-3-mobile.jpg'],
+    IMAGES: ['/smoothie.jpg', '/library.jpeg', '/go.png', '/back-art.jpg', '/back-art-2.jpg', '/back-art-2-mobile.jpg', '/back-art-3.jpg', '/back-art-3-mobile.jpg', '/studio.jpg'],
     SCRIPTS: ['/helpers.js', '/card-modal.js'],
     STYLES: ['/reset.css', '/styles.css'],
     STORAGE: ['/firebase/projects'],
